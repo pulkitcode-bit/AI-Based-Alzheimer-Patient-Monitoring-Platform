@@ -1,38 +1,68 @@
-# NeuroMind
+# 🧠 NeuroMind
 
-An AI-assisted cognitive care platform that turns everyday gameplay into clinically meaningful therapy for patients with memory and cognitive decline (e.g. Alzheimer's/dementia) — with a doctor-facing dashboard for continuous, proactive monitoring.
+**AI-assisted cognitive care platform** that turns everyday gameplay into clinically meaningful therapy for patients with memory and cognitive decline (e.g. Alzheimer's/dementia) — with a doctor-facing dashboard for continuous, proactive monitoring.
 
-## Why
+![Java](https://img.shields.io/badge/Java-ED8B00?style=flat&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat&logo=springboot&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-000000?style=flat&logo=flask&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-Cognitive decline patients need regular, structured mental exercise, and caregivers need an easy way to know who's struggling without manually reviewing every session. NeuroMind pairs a patient-facing game platform with a doctor-facing analytics dashboard, so gameplay data becomes something a clinician can actually act on.
+---
 
-## Features
+## 📖 Table of Contents
 
-**Patient portal**
-- 10 cognitive activities modeled on standard neuropsychological test formats — Trail Making (A & B), Stroop Challenge, Go/No-Go, Digit Span (forward & backward), Corsi Block Recall, N-Back, Word Fluency, and Choice Reaction Time — covering processing speed, executive function, attention/inhibition, working memory, visuospatial memory, sustained attention, and language.
-- Each session is scored on accuracy, speed, and consistency against per-activity weightings, not just a raw score.
-- Adaptive activity recommendation: a Flask microservice looks at the patient's average score per cognitive domain and recommends the next activity from their weakest domain, steering to an easier variant when they're genuinely struggling.
-- Reminders for medicines, hydration, daily activities, and appointments — set once, delivered automatically by a backend scheduler.
-- AI companion chat (Groq-hosted LLM), streamed token-by-token, prompted to be empathetic, patient, and simple to follow.
-- Appointment booking with assigned doctor(s), progress history, and profile management.
+- [Why NeuroMind](#-why-neuromind)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Architecture](#-architecture)
+- [Project Structure](#-project-structure)
+- [Getting Started](#-getting-started)
+- [Roadmap](#-roadmap)
+- [License](#-license)
 
-**Doctor portal**
+---
+
+## 💡 Why NeuroMind
+
+Cognitive decline patients need regular, structured mental exercise, and caregivers need an easy way to know who's struggling without manually reviewing every session. NeuroMind pairs a **patient-facing game platform** with a **doctor-facing analytics dashboard**, so gameplay data becomes something a clinician can actually act on.
+
+---
+
+## ✨ Features
+
+### 🎮 Patient Portal
+- **10 cognitive activities** modeled on standard neuropsychological test formats — Trail Making (A & B), Stroop Challenge, Go/No-Go, Digit Span (forward & backward), Corsi Block Recall, N-Back, Word Fluency, and Choice Reaction Time — covering processing speed, executive function, attention/inhibition, working memory, visuospatial memory, sustained attention, and language.
+- Each session is **scored on accuracy, speed, and consistency** against per-activity weightings, not just a raw score.
+- 🧩 **Adaptive activity recommendation** — a Flask microservice looks at the patient's average score per cognitive domain and recommends the next activity from their weakest domain, steering to an easier variant when they're genuinely struggling.
+- ⏰ **Reminders** for medicines, hydration, daily activities, and appointments — set once, delivered automatically by a backend scheduler.
+- 💬 **AI companion chat** (Groq-hosted LLM), streamed token-by-token, prompted to be empathetic, patient, and simple to follow.
+- 📅 Appointment booking with assigned doctor(s), progress history, and profile management.
+
+### 🩺 Doctor Portal
 - Patient roster with individual session history and stats.
-- Analytics dashboard: weekly completion trends, score progression charts, activity-type distribution.
-- Proactive alerts: patients whose average score has dropped week-over-week, and patients who've gone inactive — surfaced automatically instead of requiring manual review.
+- 📊 **Analytics dashboard** — weekly completion trends, score progression charts, activity-type distribution.
+- 🚨 **Proactive alerts** — patients whose average score has dropped week-over-week, and patients who've gone inactive, surfaced automatically instead of requiring manual review.
 - Send reminders and manage patient appointments directly.
 
-## Tech Stack
+---
+
+## 🛠️ Tech Stack
 
 | Layer | Technology |
 |---|---|
-| Frontend | Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4, Radix UI, Recharts |
-| Backend | Spring Boot (Java), REST APIs, JWT, BCrypt, Spring Scheduling |
-| Database | PostgreSQL (Neon) |
-| Recommendation engine | Python, Flask, pandas |
-| Conversational AI | Groq API (`openai/gpt-oss-120b`), server-sent-event streaming |
+| **Frontend** | Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4, Radix UI, Recharts |
+| **Backend** | Spring Boot (Java), REST APIs, JWT, BCrypt, Spring Scheduling |
+| **Database** | PostgreSQL (Neon) |
+| **Recommendation Engine** | Python, Flask, pandas |
+| **Conversational AI** | Groq API (`openai/gpt-oss-120b`), server-sent-event streaming |
 
-## Architecture
+---
+
+## 🏗️ Architecture
 
 ```
 Browser (Patient / Doctor)
@@ -54,7 +84,9 @@ Spring Boot Backend (neuromind-backend/)
         └──► Groq LLM API — AI companion responses
 ```
 
-## Project Structure
+---
+
+## 📁 Project Structure
 
 ```
 neuromind/
@@ -63,7 +95,9 @@ neuromind/
 └── ml-service/          # Flask recommendation microservice
 ```
 
-## Getting Started
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 - Node.js 18+
@@ -72,7 +106,7 @@ neuromind/
 - A PostgreSQL database (e.g. a free [Neon](https://neon.tech) instance)
 - A [Groq API key](https://console.groq.com) for the AI chat feature
 
-### 1. Backend (`neuromind-backend/`)
+### 1️⃣ Backend (`neuromind-backend/`)
 
 Copy `.env.example` to `.env` and fill in your own values:
 
@@ -82,7 +116,7 @@ DB_USERNAME=<YOUR_DB_USERNAME>
 DB_PASSWORD=<YOUR_DB_PASSWORD>
 JWT_SECRET=<YOUR_SUPER_SECRET_JWT_KEY_AT_LEAST_32_CHARS>
 JWT_EXPIRATION=36000000
-GEMINI_API_KEY=<YOUR_GEMINI_API_KEY>
+GROQ_API_KEY=<YOUR_GROQ_API_KEY>
 ```
 
 Then run:
@@ -94,7 +128,7 @@ cd neuromind-backend
 
 Backend starts on `http://localhost:8080`.
 
-### 2. ML recommendation service (`ml-service/`)
+### 2️⃣ ML Recommendation Service (`ml-service/`)
 
 ```bash
 cd ml-service
@@ -106,7 +140,7 @@ python app.py
 
 Runs on `http://localhost:5000`.
 
-### 3. Frontend (`Alzymer-project/`)
+### 3️⃣ Frontend (`Alzymer-project/`)
 
 ```bash
 cd Alzymer-project
@@ -125,14 +159,22 @@ npm run dev
 
 Runs on `http://localhost:3000`.
 
-## Roadmap
+---
 
-- Multilingual, voice-assisted interaction for elderly users
-- Regional/cultural theming for localized deployments
-- Offline-first support with background sync for low-connectivity environments
-- Enforced route-level authentication and per-resource ownership checks
-- Replace the rule-based recommender with a trained ML model as more session data accumulates
+## 🗺️ Roadmap
 
-## License
+- [ ] Multilingual, voice-assisted interaction for elderly users
+- [ ] Regional/cultural theming for localized deployments
+- [ ] Offline-first support with background sync for low-connectivity environments
+- [ ] Enforced route-level authentication and per-resource ownership checks
+- [ ] Replace the rule-based recommender with a trained ML model as more session data accumulates
 
-Add a license of your choice (MIT recommended for a portfolio project) before making the repository public.
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+<p align="center">Built with ❤️ by <a href="https://github.com/pulkitcode-bit">Pulkit Sharma</a></p>
